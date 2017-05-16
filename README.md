@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+Simple rails application querying total concepts from obs table each openmrs application e.g CCC, HTS, Hotline, ART etc 
