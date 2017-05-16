@@ -14,12 +14,54 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: v1nt4ge.
+  password: root
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database:  mysql #conceptMap_development
+  database:  ccc_development #conceptMap_development
+
+hts:
+  adapter: mysql2
+  username: root
+  password: root
+  host: localhost
+  database:  htc1_7 #conceptMap_development
+
+hotline:
+  adapter: mysql2
+  username: root
+  password: root
+  host: localhost
+  database:  Hotline_1_7_development #conceptMap_development
+
+anc:
+  adapter: mysql2
+  username: root
+  password: root
+  host: localhost
+  database: concept_anc #conceptMap_development
+
+opd:
+  adapter: mysql2
+  username: root
+  password: root
+  host: localhost
+  database: concept_anc #need to change this db name
+
+art:
+  adapter: mysql2
+  username: root
+  password: root
+  host: localhost
+  database: concept_art #conceptMap_development
+
+malaria:
+  adapter: mysql2
+  username: root
+  password: root
+  host: localhost
+  database: concept_malaria #conceptMap_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
