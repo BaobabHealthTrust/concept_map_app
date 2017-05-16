@@ -1,0 +1,41 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<select name='app' id='app_select' onchange='getTotal(this.value)'>
+	<option>HTS</option>
+	<option>CCC</option>
+	<option>ALL</option>
+</select>
+
+<div id='concept_output'>
+</div>
+
+<script>
+	
+	function getTotal(app) {
+		var xmlhttpObj;
+		var xmlhttp = null;
+
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+			if (xmlhttp.overrideMimeType) {
+				xmlhttp.overrideMimeType('text/xml');
+			}
+		} else if (window.ActiveXObject) {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		xmlhttp.open('GET', '/concepts/'+app, true);
+		xmlhttp.onreadystatechange = getConcepts;
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send(null);
+
+		function getConcepts() {
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById('concept_output').innerHTML = xmlhttp.responseText;
+			} else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+				document.getElementById('concept_output').innerHTML = 'Error: Concept Query failed!';
+			}
+		}
+
+	}
+</script>
